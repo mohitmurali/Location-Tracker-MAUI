@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- Defines the main page UI with a map and toggle button for location tracking -->
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:maps="clr-namespace:Microsoft.Maui.Controls.Maps;assembly=Microsoft.Maui.Controls.Maps"
+             x:Class="LocationTrackerApp.MainPage">
+    <!-- Arrange UI elements vertically -->
+    <StackLayout>
+        <!-- Button to toggle location tracking, bound to IsTracking property -->
+        <Button Text="{Binding IsTracking, Converter={StaticResource BoolToTextConverter}, StringFormat='Toggle Tracking: {0}'}" 
+                Command="{Binding ToggleTrackingCommand}" />
+        <!-- Map component to display location heat map, fills available space -->
+        <maps:Map x:Name="map" VerticalOptions="FillAndExpand" />
+    </StackLayout>
+</ContentPage>
